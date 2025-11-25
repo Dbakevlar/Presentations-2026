@@ -1,55 +1,43 @@
-# Makefile for Presentations 2026 Repo
-# -------------------------------------------
-# Kellyn Gorman, Dec. 2025
-# Usage:
-#   make            # Build all PDFs (default)
-#   make pdf        # Build PDFs from slides/*.md
-#   make html       # Build HTML (reveal.js) versions
-#   make clean      # Remove build artifacts
-#   make help       # Show help information
+2026 Technical Presentations by Kellyn Gorman 
+Welcome to the official repository for technical PowerPoint presentations authored by Kellyn Gorman. 
+These decks are shared to support technical sessions, community education, and professional development in the fields of Multiplatform Database, DevOps, AI, cloud, and platform engineering.
 
-SLIDES_DIR := slides
-BUILD_DIR  := build
+📂 Repository Contents This repository contains PowerPoint .pptx and .pdx files for:
 
-PANDOC := pandoc
+Conference and keynote presentations
 
-# Pandoc options
-PANDOC_PDF_FLAGS  := -t beamer
-PANDOC_HTML_FLAGS := -t revealjs -s -V revealjs-url=https://unpkg.com/reveal.js/
+Webinars and community talks
 
-SOURCES_MD  := $(wildcard $(SLIDES_DIR)/*.md)
-PDF_SLIDES  := $(patsubst $(SLIDES_DIR)/%.md,$(BUILD_DIR)/%.pdf,$(SOURCES_MD))
-HTML_SLIDES := $(patsubst $(SLIDES_DIR)/%.md,$(BUILD_DIR)/%.html,$(SOURCES_MD))
+Technical training sessions
 
-.PHONY: all
-all: pdf
+Internal and external knowledge sharing
 
-.PHONY: pdf
-pdf: $(PDF_SLIDES)
+Each file is uploaded with title and month/year date.
 
-.PHONY: html
-html: $(HTML_SLIDES)
+📥 How to Use Clone or download this repository:
 
-$(BUILD_DIR):
-	mkdir -p $(BUILD_DIR)
+bash Copy Edit git clone https://github.com/yourusername/technical-presentations.git Navigate to the relevant folder or filename.
 
-$(BUILD_DIR)/%.pdf: $(SLIDES_DIR)/%.md | $(BUILD_DIR)
-	$(PANDOC) $(PANDOC_PDF_FLAGS) $< -o $@
+Open .pptx files using Microsoft PowerPoint or a compatible viewer.
 
-$(BUILD_DIR)/%.html: $(SLIDES_DIR)/%.md | $(BUILD_DIR)
-	$(PANDOC) $(PANDOC_HTML_FLAGS) $< -o $@
+Reference the presentation materials for learning or inspiration—but read the license terms below.
 
-.PHONY: clean
-clean:
-	rm -rf $(BUILD_DIR)
+📜 License and Usage Terms All content in this repository is the intellectual property of Kellyn Gorman.
 
-.PHONY: help
-help:
-	@echo "Presentation Slides Makefile"
-	@echo ""
-	@echo "Targets:"
-	@echo "  make / make all   Build all PDF slides"
-	@echo "  make pdf          Build PDF slides from Markdown"
-	@echo "  make html         Build HTML reveal.js slides"
-	@echo "  make clean        Remove build directory"
-	@echo "  make help         Show this help message"
+❌ Duplication or redistribution is not authorized without written permission.
+
+✅ Attribution is required if referencing or citing any part of the presentations.
+
+🚫 No derivative works or commercial reuse is permitted without explicit consent.
+
+If you would like to reuse or present any of the material, please contact Kellyn Gorman for proper permission and credit.
+
+✉️ Contact For requests, questions, or collaboration inquiries:
+
+🌐 Blog: https://dbakevlar.com
+
+📧 Email: dbakevlar@gmail.com
+
+🐦 BlueSky: https://bsky.app/dbakevlar.bsky.social
+
+💼 LinkedIn: [linkedin.com/in/kellyngorman]
